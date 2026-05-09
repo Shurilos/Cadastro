@@ -1,0 +1,61 @@
+@model WebApplication1.Models.Usuario
+
+@{
+    ViewData["Title"] = "Detalhes do Usuário";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+
+        <div class="d-flex align-items-center gap-2 mb-4">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-outline-secondary">← Início</a>
+            <a asp-action="Index" class="btn btn-sm btn-outline-secondary">Lista de Usuários</a>
+            <span class="badge bg-primary ms-auto px-3 py-2">👤 Detalhes do Usuário</span>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0 fw-semibold">@Model.Nome @Model.Sobrenome</h5>
+            </div>
+            <div class="card-body p-4">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Nome</p>
+                        <p class="fw-semibold">@Model.Nome</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Sobrenome</p>
+                        <p class="fw-semibold">@Model.Sobrenome</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="text-muted small mb-1 fw-semibold">E-mail</p>
+                        <p class="fw-semibold">@Model.Email</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">CPF</p>
+                        <p class="fw-semibold">@Model.Cpf</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Telefone</p>
+                        <p class="fw-semibold">@(Model.Telefone ?? "—")</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Perfil</p>
+                        <span class="badge bg-secondary fs-6">@Model.Perfil</span>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Data de Cadastro</p>
+                        <p class="fw-semibold">@Model.DataCadastro.ToString("dd/MM/yyyy HH:mm")</p>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning px-4">✏️ Editar</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger px-4">🗑️ Excluir</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary ms-auto">← Voltar</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

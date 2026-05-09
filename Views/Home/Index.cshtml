@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Início";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow" style="border-radius:16px;">
+            <div class="card-body text-center p-5">
+
+                <!-- Logo real Vizi -->
+                <div class="mb-1">
+                    <img src="~/images/LogoVizi.png" alt="Vizi" style="height:80px; width:auto;" />
+                </div>
+
+                <h4 class="mt-2 fw-bold" style="color:#3a3a5c;">Bem-vindo!</h4>
+                <p class="text-muted mb-4" style="font-size:0.95rem;">Selecione o tipo de cadastro que deseja realizar</p>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <a asp-controller="Usuarios" asp-action="Create"
+                           class="d-flex flex-column align-items-center gap-2 p-3 text-decoration-none"
+                           style="border: 1.5px solid #d4dcff; border-radius:12px; background:#f5f7ff; transition: box-shadow 0.2s;"
+                           onmouseover="this.style.boxShadow='0 4px 16px rgba(91,124,250,0.18)'"
+                           onmouseout="this.style.boxShadow='none'">
+                            <i class="bi bi-person-fill" style="font-size:1.9rem; color:#5B7CFA;"></i>
+                            <strong style="color:#5B7CFA; font-size:0.92rem;">Cadastrar Usuário</strong>
+                            <small class="text-muted">Pessoa física</small>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a asp-controller="Empresas" asp-action="Create"
+                           class="d-flex flex-column align-items-center gap-2 p-3 text-decoration-none"
+                           style="border: 1.5px solid #d4dcff; border-radius:12px; background:#f5f7ff; transition: box-shadow 0.2s;"
+                           onmouseover="this.style.boxShadow='0 4px 16px rgba(91,124,250,0.18)'"
+                           onmouseout="this.style.boxShadow='none'">
+                            <i class="bi bi-building" style="font-size:1.9rem; color:#5B7CFA;"></i>
+                            <strong style="color:#5B7CFA; font-size:0.92rem;">Cadastrar Empresa</strong>
+                            <small class="text-muted">Pessoa jurídica</small>
+                        </a>
+                    </div>
+                </div>
+
+                <hr style="border-color:#e0e6ff;" />
+
+                <div class="row g-2 mt-1">
+                    <div class="col-6">
+                        <a asp-controller="Usuarios" asp-action="Index"
+                           class="btn btn-sm w-100"
+                           style="background:#f0f3ff; color:#5B7CFA; border:1px solid #d4dcff; font-weight:600;">
+                            Ver todos os usuários
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a asp-controller="Empresas" asp-action="Index"
+                           class="btn btn-sm w-100"
+                           style="background:#f0f3ff; color:#5B7CFA; border:1px solid #d4dcff; font-weight:600;">
+                            Ver todas as empresas
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

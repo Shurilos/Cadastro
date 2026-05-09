@@ -1,0 +1,51 @@
+@model WebApplication1.Models.Empresa
+
+@{
+    ViewData["Title"] = "Excluir Empresa";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <div class="d-flex align-items-center gap-2 mb-4">
+            <a asp-action="Index" class="btn btn-sm btn-outline-secondary">← Voltar</a>
+            <span class="badge bg-danger ms-auto px-3 py-2">🗑️ Excluir Empresa</span>
+        </div>
+
+        <div class="card shadow-sm border-0 border-danger" style="border: 1.5px solid #dc3545 !important;">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0 fw-semibold">Confirmar Exclusão</h5>
+            </div>
+            <div class="card-body p-4">
+                <div class="alert alert-danger d-flex align-items-center gap-2">
+                    <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+                    <span>Tem certeza que deseja excluir esta empresa? Esta ação não pode ser desfeita.</span>
+                </div>
+
+                <div class="row g-2 mb-4">
+                    <div class="col-12">
+                        <p class="text-muted small mb-0 fw-semibold">Razão Social</p>
+                        <p class="fw-bold fs-5">@Model.RazaoSocial</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-0 fw-semibold">CNPJ</p>
+                        <p>@Model.Cnpj</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-0 fw-semibold">E-mail</p>
+                        <p>@Model.Email</p>
+                    </div>
+                </div>
+
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-danger px-4">🗑️ Sim, excluir</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

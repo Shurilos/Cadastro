@@ -1,0 +1,69 @@
+@model WebApplication1.Models.Empresa
+
+@{
+    ViewData["Title"] = "Detalhes da Empresa";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+
+        <div class="d-flex align-items-center gap-2 mb-4">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-outline-secondary">← Início</a>
+            <a asp-action="Index" class="btn btn-sm btn-outline-secondary">Lista de Empresas</a>
+            <span class="badge bg-success ms-auto px-3 py-2">🏢 Detalhes da Empresa</span>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0 fw-semibold">@Model.RazaoSocial</h5>
+            </div>
+            <div class="card-body p-4">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">CNPJ</p>
+                        <p class="fw-semibold">@Model.Cnpj</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Telefone</p>
+                        <p class="fw-semibold">@(Model.Telefone ?? "—")</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="text-muted small mb-1 fw-semibold">E-mail Corporativo</p>
+                        <p class="fw-semibold">@Model.Email</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Segmento</p>
+                        <p class="fw-semibold">@(Model.Segmento ?? "—")</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Porte</p>
+                        <span class="badge bg-secondary fs-6">@(Model.Porte ?? "—")</span>
+                    </div>
+                    <div class="col-12">
+                        <p class="text-muted small mb-1 fw-semibold">Endereço</p>
+                        <p class="fw-semibold">@(Model.Endereco ?? "—")</p>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="text-muted small mb-1 fw-semibold">Cidade</p>
+                        <p class="fw-semibold">@(Model.Cidade ?? "—")</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="text-muted small mb-1 fw-semibold">Estado</p>
+                        <p class="fw-semibold">@(Model.Estado ?? "—")</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1 fw-semibold">Data de Cadastro</p>
+                        <p class="fw-semibold">@Model.DataCadastro.ToString("dd/MM/yyyy HH:mm")</p>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning px-4">✏️ Editar</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger px-4">🗑️ Excluir</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary ms-auto">← Voltar</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
